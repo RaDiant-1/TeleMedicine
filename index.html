@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleMed Pro - Professional Telemedicine Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="description" content="Professional telemedicine services providing remote healthcare consultations, urgent care, and chronic disease management.">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-brand">
+                <h1>TeleMed Pro</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#doctors">Our Doctors</a></li>
+                <li><a href="#appointment-booking">Appointments</a></li>
+                <li><a href="#patient-portal">Patient Portal</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#" id="auth-link">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Authentication Modal -->
+        <div id="auth-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="auth-container">
+                    <div class="auth-tabs">
+                        <button class="tab-btn active" data-tab="login">Login</button>
+                        <button class="tab-btn" data-tab="register">Register</button>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <form id="login-form" class="auth-form active">
+                        <h2>Login to Your Account</h2>
+                        <div class="form-group">
+                            <label for="login-email">Email:</label>
+                            <input type="email" id="login-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password:</label>
+                            <input type="password" id="login-password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div id="login-message" class="message"></div>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="register-form" class="auth-form">
+                        <h2>Create New Account</h2>
+                        <div class="form-group">
+                            <label for="register-name">Full Name:</label>
+                            <input type="text" id="register-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email:</label>
+                            <input type="email" id="register-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password:</label>
+                            <input type="password" id="register-password" name="password" required minlength="6">
+                            <small>Password must be at least 6 characters long</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <div id="register-message" class="message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to TeleMed Pro</h1>
+                <p class="hero-subtitle">Professional Telemedicine Services at Your Fingertips</p>
+                <p>Experience revolutionary healthcare delivery through modern technology. Our platform facilitates remote consultations between patients and healthcare professionals, ensuring timely and efficient medical care without the need for physical presence in a clinic.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('appointment-booking')">Book Appointment</button>
+                    <button class="btn btn-urgent">Urgent Care</button>
+                </div>
+            </div>
+
+            <div class="featured-services">
+                <h2>Our Featured Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>24/7 Urgent Care</h3>
+                        <p>Immediate consultations for non-emergency conditions</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Chronic Disease Management</h3>
+                        <p>Ongoing care for diabetes, hypertension, and more</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Mental Health Support</h3>
+                        <p>Professional therapy and counseling services</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Pediatric Care</h3>
+                        <p>Specialized care for infants, children, and adolescents</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials">
+                <h2>What Our Patients Say</h2>
+                <div class="testimonials-grid">
+                    <blockquote>
+                        <p>"TeleMed Pro has been a lifesaver. I got expert medical advice without leaving my house!"</p>
+                        <cite>- Sarah M.</cite>
+                    </blockquote>
+                    <blockquote>
+                        <p>"The doctors are knowledgeable and caring. It's like having a doctor in the family."</p>
+                        <cite>- John D.</cite>
+                    </blockquote>
+                    <blockquote>
+                        <p>"Quick, professional, and convenient. Highly recommend for busy professionals."</p>
+                        <cite>- Maria L.</cite>
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="news-updates">
+                <h2>Latest Updates</h2>
+                <ul>
+                    <li>🆕 New: Specialized dermatology consultations now available</li>
+                    <li>💉 COVID-19 testing and vaccination information updated</li>
+                    <li>🏥 Expanded insurance coverage for telemedicine services</li>
+                    <li>📱 Mobile app now available for iOS and Android</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About TeleMed Pro</h2>
+            <p>At the heart of our mission is the belief that everyone deserves access to quality healthcare, no matter where they are. Founded with a vision to revolutionize healthcare delivery, we're dedicated to bringing compassionate, cutting-edge telemedicine solutions to every corner of the globe.</p>
+            
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>50,000+</h3>
+                    <p>Patients Served</p>
+                </div>
+                <div class="stat">
+                    <h3>200+</h3>
+                    <p>Healthcare Professionals</p>
+                </div>
+                <div class="stat">
+                    <h3>24/7</h3>
+                    <p>Available Support</p>
+                </div>
+                <div class="stat">
+                    <h3>98%</h3>
+                    <p>Patient Satisfaction</p>
+                </div>
+            </div>
+
+            <h3>Core Values</h3>
+            <dl class="values-list">
+                <dt><strong>Empathy</strong></dt>
+                <dd>We place the highest priority on understanding and addressing the unique needs of each patient and community we serve.</dd>
+
+                <dt><strong>Innovation</strong></dt>
+                <dd>We leverage the latest technology to continuously improve and expand our telemedicine offerings.</dd>
+                
+                <dt><strong>Inclusivity</strong></dt>
+                <dd>We strive to make our services available and beneficial to everyone, regardless of location or socioeconomic status.</dd>
+                
+                <dt><strong>Integrity</strong></dt>
+                <dd>We operate with the utmost honesty and transparency, ensuring trust and reliability in every interaction.</dd>
+                
+                <dt><strong>Excellence</strong></dt>
+                <dd>We are committed to delivering the highest quality healthcare services and continuously improving patient outcomes.</dd>
+            </dl>
+
+            <h3>Our Leadership Team</h3>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h4>Dr. Emily Peace, MD</h4>
+                    <p class="title">Chief Medical Officer</p>
+                    <p>Board Certified in Internal Medicine with over 15 years of experience in telemedicine and digital health innovation.</p>
+                </div>
+                <div class="team-member">
+                    <h4>Dr. Michael Johnson, PhD</h4>
+                    <p class="title">Chief Technology Officer</p>
+                    <p>Expert in healthcare informatics and telemedicine systems with a focus on secure, scalable healthcare technology.</p>
+                </div>
+                <div class="team-member">
+                    <h4>Lisa Chen, MBA</h4>
+                    <p class="title">Chief Executive Officer</p>
+                    <p>Healthcare industry veteran with 20+ years of experience in healthcare administration and digital transformation.</p>
+                </div>
+            </div>
+
+            <h3>Certifications and Accreditations</h3>
+            <div class="certifications">
+                <ul>
+                    <li>✅ Joint Commission Accredited</li>
+                    <li>✅ HIPAA Compliant</li>
+                    <li>✅ American Telemedicine Association Member</li>
+                    <li>✅ ISO 27001 Certified</li>
+                    <li>✅ SOC 2 Type II Compliant</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Our Comprehensive Services</h2>
+            <div class="services-detailed">
+                <div class="service-item">
+                    <h3>Primary Care</h3>
+                    <p>Comprehensive general health consultations, routine check-ups, prescriptions, and specialist referrals.</p>
+                    <ul>
+                        <li>Annual wellness visits</li>
+                        <li>Chronic condition monitoring</li>
+                        <li>Preventive care counseling</li>
+                        <li>Prescription management</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3>Urgent Care</h3>
+                    <p>Immediate care for non-emergency conditions that require prompt medical attention.</p>
+                    <ul>
+                        <li>Cold and flu symptoms</li>
+                        <li>Minor injuries assessment</li>
+                        <li>Skin conditions</li>
+                        <li>Digestive issues</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3>Chronic Disease Management</h3>
+                    <p>Ongoing specialized care for long-term health conditions.</p>
+                    <ul>
+                        <li>Diabetes management</li>
+                        <li>Hypertension monitoring</li>
+                        <li>Asthma care</li>
+                        <li>Heart disease management</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3>Mental Health Services</h3>
+                    <p>Professional mental health support and counseling services.</p>
+                    <ul>
+                        <li>Individual therapy sessions</li>
+                        <li>Anxiety and depression treatment</li>
+                        <li>Stress management counseling</li>
+                        <li>Psychiatric consultations</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3>Pediatric Care</h3>
+                    <p>Specialized healthcare services for infants, children, and adolescents.</p>
+                    <ul>
+                        <li>Well-child visits</li>
+                        <li>Developmental assessments</li>
+                        <li>Immunization consultations</li>
+                        <li>Behavioral health support</li>
+                    </ul>
+                </div>
+                <div class="service-item">
+                    <h3>Specialist Consultations</h3>
+                    <p>Access to various medical specialists for specialized care.</p>
+                    <ul>
+                        <li>Cardiology</li>
+                        <li>Dermatology</li>
+                        <li>Neurology</li>
+                        <li>Endocrinology</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works">
+            <h2>How Our Telemedicine Platform Works</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Create Your Account</h3>
+                    <p>Sign up securely and complete your medical profile</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Choose Your Service</h3>
+                    <p>Select the type of consultation you need</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Schedule Appointment</h3>
+                    <p>Pick an available time slot that works for you</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Complete Health Form</h3>
+                    <p>Fill out a brief health questionnaire</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Video Consultation</h3>
+                    <p>Connect with your doctor via secure video call</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Receive Care Plan</h3>
+                    <p>Get diagnosis, treatment plan, and prescriptions</p>
+                </div>
+            </div>
+
+            <div class="tech-requirements">
+                <h3>Technology Requirements</h3>
+                <div class="requirements-grid">
+                    <div class="requirement">
+                        <h4>Device</h4>
+                        <p>Smartphone, tablet, or computer with camera and microphone</p>
+                    </div>
+                    <div class="requirement">
+                        <h4>Internet</h4>
+                        <p>Stable broadband internet connection (minimum 1 Mbps)</p>
+                    </div>
+                    <div class="requirement">
+                        <h4>Browser</h4>
+                        <p>Chrome, Firefox, Safari, or Edge (latest versions)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-info">
+                <h3>Privacy and Security</h3>
+                <p>We use military-grade end-to-end encryption for all video consultations and comply with all HIPAA regulations to ensure your medical information remains confidential and secure. Your data is protected with:</p>
+                <ul>
+                    <li>256-bit SSL encryption</li>
+                    <li>HIPAA-compliant data storage</li>
+                    <li>Multi-factor authentication</li>
+                    <li>Regular security audits</li>
+                </ul>
+            </div>
+
+            <div class="faq">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item">
+                    <h4>Is telemedicine right for all medical conditions?</h4>
+                    <p>While telemedicine is suitable for many conditions, some situations may require in-person visits. Our doctors will advise if an in-person examination is necessary.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I get prescriptions through telemedicine?</h4>
+                    <p>Yes, our doctors can prescribe many medications as appropriate. However, certain controlled substances may require in-person visits.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How much does a consultation cost?</h4>
+                    <p>Consultation fees vary by service type. Many insurance plans cover telemedicine visits. Check with your insurance provider for coverage details.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="doctors">
+            <h2>Meet Our Healthcare Professionals</h2>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Dr. Sarah Williams">
+                    </div>
+                    <h3>Dr. Sarah Williams, MD</h3>
+                    <p class="specialty">Internal Medicine</p>
+                    <p>15+ years experience in primary care and telemedicine</p>
+                    <div class="doctor-credentials">
+                        <span>Board Certified</span>
+                        <span>Johns Hopkins Graduate</span>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Dr. James Chen">
+                    </div>
+                    <h3>Dr. James Chen, MD</h3>
+                    <p class="specialty">Pediatrics</p>
+                    <p>Specialized in child and adolescent healthcare</p>
+                    <div class="doctor-credentials">
+                        <span>Board Certified</span>
+                        <span>Stanford Graduate</span>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Dr. Maria Rodriguez">
+                    </div>
+                    <h3>Dr. Maria Rodriguez, PhD</h3>
+                    <p class="specialty">Mental Health</p>
+                    <p>Licensed clinical psychologist and therapist</p>
+                    <div class="doctor-credentials">
+                        <span>Licensed Psychologist</span>
+                        <span>UCLA Graduate</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="appointment-booking" class="fade-in">
+            <h2>Book Your Appointment</h2>
+            <form class="appointment-form" id="appointment-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appointment-name">Full Name:</label>
+                        <input type="text" id="appointment-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-email">Email Address:</label>
+                        <input type="email" id="appointment-email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appointment-phone">Phone Number:</label>
+                        <input type="tel" id="appointment-phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-dob">Date of Birth:</label>
+                        <input type="date" id="appointment-dob" name="dob" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appointment-date">Preferred Date:</label>
+                        <input type="date" id="appointment-date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-time">Preferred Time:</label>
+                        <input type="time" id="appointment-time" name="time" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="appointment-service">Service Type:</label>
+                    <select id="appointment-service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="primary-care">Primary Care</option>
+                        <option value="urgent-care">Urgent Care</option>
+                        <option value="chronic-disease">Chronic Disease Management</option>
+                        <option value="mental-health">Mental Health</option>
+                        <option value="pediatrics">Pediatrics</option>
+                        <option value="specialist">Specialist Consultation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="appointment-reason">Reason for Visit:</label>
+                    <textarea id="appointment-reason" name="reason" required placeholder="Please describe your symptoms or reason for consultation"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="appointment-insurance">Insurance Provider:</label>
+                    <select id="appointment-insurance" name="insurance">
+                        <option value="">Select your insurance (optional)</option>
+                        <option value="aetna">Aetna</option>
+                        <option value="blue-cross">Blue Cross Blue Shield</option>
+                        <option value="cigna">Cigna</option>
+                        <option value="humana">Humana</option>
+                        <option value="medicare">Medicare</option>
+                        <option value="medicaid">Medicaid</option>
+                        <option value="other">Other</option>
+                        <option value="self-pay">Self Pay</option>
+                    </select>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms-agreement" name="terms" required>
+                    <label for="terms-agreement">I agree to the <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a></label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Book Appointment</button>
+                </div>
+                <div id="appointment-message" class="message"></div>
+            </form>
+
+            <div class="cancellation-policy">
+                <h3>Cancellation Policy</h3>
+                <p>Appointments can be cancelled or rescheduled up to 2 hours before the scheduled time. Late cancellations may be subject to a fee. Emergency situations are handled on a case-by-case basis.</p>
+            </div>
+        </section>
+
+        <section id="patient-portal">
+            <h2>Patient Portal</h2>
+            <div class="portal-info">
+                <p>Access your medical records, appointment history, prescriptions, and more through our secure patient portal.</p>
+                <div class="portal-features">
+                    <div class="feature">
+                        <h3>Medical Records</h3>
+                        <p>View your complete medical history and test results</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Appointments</h3>
+                        <p>Schedule, reschedule, or cancel appointments</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Prescriptions</h3>
+                        <p>Request refills and view prescription history</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Secure Messaging</h3>
+                        <p>Communicate directly with your healthcare team</p>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="portal-access">Access Patient Portal</button>
+            </div>
+        </section>
+
+        <section id="insurance">
+            <h2>Insurance & Pricing</h2>
+            <div class="insurance-info">
+                <h3>Accepted Insurance Plans</h3>
+                <div class="insurance-grid">
+                    <div class="insurance-card">Aetna</div>
+                    <div class="insurance-card">Blue Cross Blue Shield</div>
+                    <div class="insurance-card">Cigna</div>
+                    <div class="insurance-card">Humana</div>
+                    <div class="insurance-card">Medicare</div>
+                    <div class="insurance-card">Medicaid</div>
+                    <div class="insurance-card">UnitedHealthcare</div>
+                    <div class="insurance-card">Kaiser Permanente</div>
+                </div>
+                
+                <h3>Self-Pay Pricing</h3>
+                <div class="pricing-table">
+                    <div class="price-item">
+                        <h4>Primary Care Consultation</h4>
+                        <span class="price">$75</span>
+                    </div>
+                    <div class="price-item">
+                        <h4>Urgent Care Visit</h4>
+                        <span class="price">$95</span>
+                    </div>
+                    <div class="price-item">
+                        <h4>Mental Health Session</h4>
+                        <span class="price">$120</span>
+                    </div>
+                    <div class="price-item">
+                        <h4>Specialist Consultation</h4>
+                        <span class="price">$150</span>
+                    </div>
+                </div>
+                <p class="pricing-note">Prices may vary based on consultation complexity. Insurance copays typically range from $10-$40.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <h3>Phone Support</h3>
+                        <p><strong>24/7 Support:</strong> 1-800-TELEMED</p>
+                        <p><strong>Business Hours:</strong> 1-800-123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Email Support</h3>
+                        <p><strong>General:</strong> info@telemedpro.com</p>
+                        <p><strong>Technical:</strong> support@telemedpro.com</p>
+                        <p><strong>Billing:</strong> billing@telemedpro.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Mailing Address</h3>
+                        <p>TeleMed Pro<br>
+                        123 Healthcare Blvd<br>
+                        Medical City, MC 12345</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <h3>Send us a Message</h3>
+                    <div class="form-group">
+                        <label for="contact-name">Name:</label>
+                        <input type="text" id="contact-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email:</label>
+                        <input type="email" id="contact-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-subject">Subject:</label>
+                        <select id="contact-subject" name="subject" required>
+                            <option value="">Select a topic</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="billing">Billing Question</option>
+                            <option value="appointment">Appointment Help</option>
+                            <option value="feedback">Feedback</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message:</label>
+                        <textarea id="contact-message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div id="contact-message-result" class="message"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>TeleMed Pro</h3>
+                <p>Professional telemedicine services bringing quality healthcare to your fingertips.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#appointment-booking">Book Appointment</a></li>
+                    <li><a href="#patient-portal">Patient Portal</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#hipaa">HIPAA Notice</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Emergency</h4>
+                <p><strong>For medical emergencies, call 911 immediately.</strong></p>
+                <p>TeleMed Pro is not for emergency situations.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TeleMed Pro. All rights reserved. | Licensed Healthcare Provider</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
